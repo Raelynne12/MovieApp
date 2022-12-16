@@ -28,8 +28,7 @@ export default function Detail() {
         .get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
         .then((response) => {
            //setCast(response.data.cast.map((item) => item.profile_path))
-           setCast(response.data.cast)
-                })
+           setCast(response.data.cast)})
     },[movieId])
 
     //prettier-ignore

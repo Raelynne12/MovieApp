@@ -19,7 +19,6 @@ export default function ProfileDetail() {
         .get(`https://api.themoviedb.org/3/person/${profileId}?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
         .then((response)=>{
         setDetail(response.data);
-        console.log(detail);
         // setGenres(response.data.genres.map(item=>item.name).join("/"));
         })
 
