@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useCallback} from 'react'
 import axios from "axios"
 import {useParams} from "react-router-dom"
 import Profile from './Profile'
@@ -7,34 +7,39 @@ import 'swiper/css';
 
 export default function Detail() {
     //const [count, setCount] = useState(0)
-    const movieId = useParams().id
+    const { movieId } = useParams()
     console.log(movieId)
     const [detail, setDetail] = useState({})
     const [genres, setGenres] = useState("")
     const [cast, setCast] = useState([])   
     //cast는 배열로 들어온 거라 []를 해줘야 함
 
-    //prettier-ignore
-    useEffect(() => {
+    const getDetail = useCallback(() => { 
         axios
         .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
         .then((response)=>{
         setDetail(response.data);
-        console.log(detail);
         setGenres(response.data.genres.map(item=>item.name).join("/"));
         })
+    },[movieId])
 
+    const getCast = useCallback(() => { 
         axios 
         .get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
         .then((response) => {
-           console.log(response.data.cast)
            //setCast(response.data.cast.map((item) => item.profile_path))
            setCast(response.data.cast)
-           
-           console.log(cast)
-        })
+                })
+    },[movieId])
 
-    },[])
+    //prettier-ignore
+    useEffect(() => {
+        getDetail()
+        getCast()
+
+        
+
+    },[getDetail, getCast])
   return (
     <>
         <div className='container detail'>

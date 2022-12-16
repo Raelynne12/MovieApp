@@ -1,7 +1,5 @@
 import React from 'react'
-import axios from "axios"
-import {useState, useEffect} from "react"
-import { Link } from "react-router-dom"
+import {useState} from "react"
 import {useParams} from "react-router-dom"
 
 export default function NowDetail() {
@@ -10,7 +8,7 @@ export default function NowDetail() {
     const [] = useState({})
   return (
     <div className='container detail'>
-        <h2></h2>
+        <h2>hello</h2>
     </div>
   )
 }

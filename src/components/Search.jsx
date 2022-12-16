@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { createSearchParams, useNavigate } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 export default function Search() {
     const navigate = useNavigate()
@@ -21,7 +21,7 @@ export default function Search() {
           <button className='search-button' onClick={() => {
             navigate(`/search?movie=${searchmovie}`)   //뒤에 &name="Raelynne"
           }}>
-              <i class="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass"></i>
           </button>
     </div>
   )

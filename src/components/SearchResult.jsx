@@ -4,7 +4,7 @@ import axios from "axios"
 import Movie from "./Movie"
 
 export default function SearchResult() {
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams, ] = useSearchParams()
     console.log(searchParams.get("movie"))
     const searchmovie = searchParams.get("movie")
    // const searchname = searchParams.get("movie")

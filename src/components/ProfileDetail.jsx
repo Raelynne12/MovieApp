@@ -85,14 +85,15 @@ export default function ProfileDetail() {
                             slidesPerView={5}
                     >
                     {
-                    movies.map((item, idx)=>{
-                        if(idx < 20){
-                        return (
-                        <SwiperSlide className='item'>
-                        <MovieItem title={item.title} poster={item.poster_path} id={item.id} key = {idx}></MovieItem>
-                        </SwiperSlide>
-                        )}
-                    })    
+                        movies
+                        .filter((item, idx) => idx<10)
+                        .map((item, idx)=>{
+                            return (
+                                <SwiperSlide className='item'>
+                                <MovieItem title={item.title} poster={item.poster_path} id={item.id} key = {idx}></MovieItem>
+                                </SwiperSlide>
+                            )
+                        })    
                     }
                     </Swiper>
                     </dd>

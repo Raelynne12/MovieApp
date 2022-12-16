@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link, useNavigate} from "react-router-dom"
 import Search from './Search'
-import NowPlaying from "./NowPlaying"
 
 export default function Header() {
 
@@ -13,7 +12,7 @@ export default function Header() {
   return (
     <header className='header' id = "header">
         <button onClick={back} className = "back">
-        <i class="fa-solid fa-arrow-left"></i>
+        <i className="fa-solid fa-arrow-left"></i>
         </button>
         <h1>
         <Link to="/">MOVIE APP</Link>
