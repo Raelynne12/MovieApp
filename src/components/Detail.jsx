@@ -7,8 +7,9 @@ import 'swiper/css';
 
 export default function Detail() {
     //const [count, setCount] = useState(0)
-    const { movieId } = useParams()
-    console.log(movieId)
+    const { id } = useParams()  //구조분해할당 할 때는 값 그대로 써야 함
+    
+    console.log(id)
     const [detail, setDetail] = useState({})
     const [genres, setGenres] = useState("")
     const [cast, setCast] = useState([])   
@@ -16,20 +17,20 @@ export default function Detail() {
 
     const getDetail = useCallback(() => { 
         axios
-        .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
+        .get(`https://api.themoviedb.org/3/movie/${id}?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
         .then((response)=>{
         setDetail(response.data);
         setGenres(response.data.genres.map(item=>item.name).join("/"));
         })
-    },[movieId])
+    },[id])
 
     const getCast = useCallback(() => { 
         axios 
-        .get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
+        .get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=c06b68f2227892978c4d94fb3dcf00be&language=ko-KR`)
         .then((response) => {
            //setCast(response.data.cast.map((item) => item.profile_path))
            setCast(response.data.cast)})
-    },[movieId])
+    },[id])
 
     //prettier-ignore
     useEffect(() => {
