@@ -28,7 +28,7 @@ export default function ProfileDetail() {
         .then((response) => {
         //setMovieCredit(response.data.cast.map((item, idx) => item.original_title).join("/"))
         setMovieCredit(response.data.cast)
-        console.log(movies)})
+        })
     },[profileId])
   return (
     <>
