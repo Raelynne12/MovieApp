@@ -25,11 +25,11 @@ export default function List() {
   return (
     <div className="container">
         <h2>
-            <p>
-             <Link to="/nowplay">NOW PLAY</Link>
+            <p className="now-play">
+             <Link to="/nowplay">NOW PLAYING</Link>
             </p>
-            <p>
-              POPULAR MOVIE
+            <p className="popular-movie">
+              <Link to = "/">POPULAR MOVIE</Link>
             </p>
         </h2>
         <ul className="movie-list">
@@ -38,7 +38,7 @@ export default function List() {
                 movies.map((item, idx) => {
                     return (
                         //<Movie voteCount = {item.vote_count} overview={item.overview}key = {idx} poster = {item.poster_path} title={item.title} originalTitle={item.original_title} releaseDate={item.release_date}></Movie>
-                        <Movie movieInfo={item} key={idx}></Movie>
+                        <Movie movieInfo={item} key={item.id}></Movie>
                     )
                 })
             }

@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import axios from "axios"
 import NowMovie from './NowMovie'
+import { Link } from 'react-router-dom'
 
 export default function NowPlaying() {
 
@@ -16,7 +17,7 @@ export default function NowPlaying() {
 
   return (
     <div className='container'>
-        <h2><strong>Now Playing</strong></h2>
+        <Link to = "/"><h2 className='popular-movie'>POPULAR MOVIE</h2></Link>
         <ul className='now-list'>
             {
                 nowplay.map((item, idx) => {
